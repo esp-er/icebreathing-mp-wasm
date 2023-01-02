@@ -1,0 +1,11 @@
+{
+  "name": "icebreathing-mpp-shared",
+  "version": "1.0.0-SNAPSHOT",
+  "main": "icebreathing-mpp-shared.js",
+  "types": "icebreathing-mpp-shared.d.ts",
+  "devDependencies": {},
+  "dependencies": {},
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": []
+}

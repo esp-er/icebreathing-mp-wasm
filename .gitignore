@@ -2,6 +2,6 @@
 .gradle/*
 .idea/*
 .fleet/*
-jsapp/build/*
+jsApp/build/*
 
 *.jar

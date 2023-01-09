@@ -70,7 +70,7 @@ fun BreathHoldScreen(screenSize: IntSize,
     val progressDia = minOf(screenSize.height, screenSize.width)
     val progSize = DpSize(progressDia.dp * 0.8f, progressDia.dp * 0.8f)
 
-    val lineDiam = DpSize(progressDia.dp * 0.73f, progressDia.dp * 0.74f)
+    val lineDiam = DpSize(progressDia.dp * 0.73f, progressDia.dp * 0.73f)
 
 
     Canvas(modifier = Modifier.offset(0.dp, 0.dp)) {

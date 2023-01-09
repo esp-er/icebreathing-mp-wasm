@@ -1,4 +1,4 @@
-package com.patriker.icebreathing
+package patriker.breathing.iceman
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 
 @Composable
 fun FinishScreen(thisSession: SessionData, clickedBack: () -> Unit) {

@@ -12,7 +12,8 @@ val defHoldMap = mapOf(1 to 90, 2 to 120, 3 to 145, 4 to 150, 5 to 150, 6 to 180
 fun App() {
     var thisSession by remember { mutableStateOf(SessionData(30, 3, defHoldMap)) }
 
-    fun clickedStartBreathing(s: SessionData) {
+    fun clickedStartBreathing(session: SessionData) {
+        thisSession = session
         AppState.screenState(ScreenType.Breathe)
     }
 

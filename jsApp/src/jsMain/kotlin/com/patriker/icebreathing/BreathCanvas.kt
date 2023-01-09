@@ -85,7 +85,6 @@ fun BreatheCanvas(
 
 
 
-
     val transit = updateTransition(targetState = breatheState)
 
     val animColor by transit.animateColor({
@@ -123,12 +122,19 @@ fun BreatheCanvas(
             else -> BreatheState.Full
         }
     }*/
-    val fontColor by transit.animateColor({ tween(animSpeed - 400, easing = FastOutLinearInEasing)}) { state ->
+    val fontColor by transit.animateColor({ tween(if(transit.targetState == BreatheState.Empty) animSpeed + 500 else animSpeed, easing = LinearOutSlowInEasing)}) { state ->
         when (state) {
             BreatheState.Full -> MaterialTheme.colors.background
-            BreatheState.Empty -> lightBlueColor.copy(alpha = 0.5f)
+            BreatheState.Empty -> lightBlueColor
             BreatheState.Paused -> Color.DarkGray
+        }
+    }
 
+      val fontColorSlow by transit.animateColor({ tween(animSpeed + 500 , easing = LinearEasing)}) { state ->
+        when (state) {
+            BreatheState.Full -> MaterialTheme.colors.background
+            BreatheState.Empty -> if(!finalBreath) lightBlueColor.copy(alpha = 0.5f) else MaterialTheme.colors.background
+            BreatheState.Paused -> Color.DarkGray
         }
     }
 
@@ -338,7 +344,7 @@ fun BreatheCanvas(
         Text(
             breatheText(),
             fontSize = breatheTextSize(),
-            color = fontColor,
+            color = if(finalBreath)fontColorSlow else fontColor,
             modifier = Modifier.offset(0.dp, -40.dp),
             fontWeight = FontWeight.Bold,
             //style = TextStyle(shadow = Shadow(color = Color.Black, offset = Offset(4f,4f)))
